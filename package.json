@@ -1,0 +1,20 @@
+{
+  "name": "reto-rimac",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "local": "sls offline start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-offline": "^6.5.0"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "winston": "^3.3.3"
+  }
+}
