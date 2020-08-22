@@ -16,4 +16,4 @@
 - Mayor complejidad de Integración
 - Arquitectura base
 
-![arquitectura](reto-rimac/arquitectura.png)
+![arquitectura](https://github.com/kevinSilvaMalca/reto-rimac/blob/master/arquitectura.png)
