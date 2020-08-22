@@ -66,6 +66,8 @@ npm install --save-dev serverless-offline
   sls remove
 
 ```
-# Link de Endpoints AWS 
+# Link de Endpoints AWS  - POSTMAN 
 
-[https://universal-flare-904273.postman.co/collections/8806444-883d4752-0f48-4bf4-9405-517aaf2c21bd?version=latest&workspace=96446db5-a62c-482c-8752-9709f11c41ce]()
+  Los endpoint publicados en aws seguiran prendidos para las pruebas correspondientes. Copiar la URL y pegarlo en otra pestaña del navegador.
+
+  [https://universal-flare-904273.postman.co/collections/8806444-883d4752-0f48-4bf4-9405-517aaf2c21bd?version=latest&workspace=96446db5-a62c-482c-8752-9709f11c41ce]()
