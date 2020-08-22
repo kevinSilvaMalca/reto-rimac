@@ -24,29 +24,45 @@ Crear un endpoint GET que muestre la data almacenada.
     ├── README.md
     └── REQUERIMIENTOS.md
 
-- 1.- configurar aws-cli y serverless
+- configurar aws-cli y serverless
 
-  sudo apt-get awscli sudo npm install -g aws-cli serverless #configuramos sudo aws configure aws access key id [none]: ####
+```
+sudo apt-get awscli
+sudo npm install -g aws-cli serverless
+#Configuramos
 
-  AWS Secret Access Key [None]: ###
-  Default region name [None]: ###
-  Default output format [None]: json
+sudo aws configure
 
-  sudo sls config credentials --provider aws --key ###ID#### --secret ###PAS### --profile serverless-rimac
+AWS Access Key ID [None]: ####
+AWS Secret Access Key [None]: ###
+Default region name [None]: ###
+Default output format [None]: json
 
-- 2.- Plantilla Serverless
+sudo sls config credentials --provider aws --key ###ID#### --secret ###PAS### --profile serverless-rimac
 
-  sudo sls create -t aws-nodejs
 
-  EJECUTANDO PRUEBAS
+```
 
-  sls invoke local -f ####
+- Plantilla Serverless
 
-  sls invoke local -f hello -d '######'
+```
+sudo sls create -t aws-nodejs
 
-  npm install --save-dev serverless-offline
+EJECUTANDO PRUEBAS
 
-- 3.- Deploy AWS
+sls invoke local -f hello
+
+sls invoke local -f hello -d 'hola Mundo'
+
+npm install --save-dev serverless-offline
+
+```
+
+- Deploy AWS
+
+```
 
   sls deploy
   sls remove
+
+```
