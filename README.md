@@ -1,25 +1,43 @@
-# 2.- Configurar AWS-CLI y SERVERLESS
+# Visión General
 
-```
-sudo apt-get awscli
-sudo npm install -g aws-cli serverless
+Crear una API en Node.js con el framework Serverless.js para un despliegue en AWS.
+Adaptar y transformar los modelos de la API de prueba. Se tienen que mapear todos los nombres de atributos modelos del inglés al español (Ej: name -> nombre).
+Integrar la API de prueba StarWars API (lineas abajo está el link) se deben integrar uno o más endpoints.
+Crear un modelo de su elección mediante el uso de un endpoint POST, la data se tendrá que almacenar dentro de una base de datos.
+Crear un endpoint GET que muestre la data almacenada.
 
-#Configuramos
-sudo aws configure
+[[API de prueba SWAPI: https://swapi.py4e.com/documentation](https://swapi.py4e.com/documentation)]()
 
-AWS Access Key ID [None]: ####
+# Ficheros
+
+.
+├── serverless.yml
+├── src
+│ └── controllers
+| ├── getPlaneta.js
+| └── postPlaneta.js
+│ ├── db
+│ ├── helpers
+| └── utils
+|  
+├── package.json
+├── README.md
+└── REQUERIMIENTOS.md
+
+[ # 1.- configurar aws-cli y serverless ``` sudo apt-get awscli sudo npm install -g aws-cli serverless #configuramos sudo aws configure aws access key id [none]: ####
+
 AWS Secret Access Key [None]: ###
 Default region name [None]: ###
 Default output format [None]: json
 
 sudo sls config credentials --provider aws --key ###ID#### --secret ###PAS### --profile serverless-rimac
 
+```
+
+# 2.- Plantilla Serverless
 
 ```
 
-# 3.- Plantilla Serverless
-
-```
 sudo sls create -t aws-nodejs
 
 EJECUTANDO PRUEBAS
@@ -28,17 +46,17 @@ sls invoke local -f ####
 
 sls invoke local -f hello -d '######'
 
-npm install --save-dev serverless-offline  
-```
-
-# 4.- Deploy AWS
-
-```
-sls deploy -f hello
-sls deply -s production -f hello
-sls logs -f hello -s production --startTime 10m
-sls remove -s dev
-
+npm install --save-dev serverless-offline
 
 ```
 
+# 3.- Deploy AWS
+
+```
+
+sls deploy
+sls remove
+
+```
+]()
+```

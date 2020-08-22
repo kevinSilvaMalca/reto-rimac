@@ -15,3 +15,5 @@
 - Desplegar sin errores en AWS con el comando deploy del framework serverless
 - Mayor complejidad de Integración
 - Arquitectura base
+
+![arquitectura](reto-rimac/arquitectura.png)
