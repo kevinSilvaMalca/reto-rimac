@@ -6,7 +6,7 @@ Integrar la API de prueba StarWars API (lineas abajo está el link) se deben int
 Crear un modelo de su elección mediante el uso de un endpoint POST, la data se tendrá que almacenar dentro de una base de datos.
 Crear un endpoint GET que muestre la data almacenada.
 
-[API de prueba SWAPI: https://swapi.py4e.com/documentation](https://swapi.py4e.com/documentation)]()
+[API de prueba SWAPI: https://swapi.py4e.com/documentation](https://swapi.py4e.com/documentation)
 
 ### Ficheros
 
