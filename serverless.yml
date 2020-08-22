@@ -2,6 +2,7 @@ service: reto-rimac
 
 plugins:
   - serverless-offline
+  # - serverless-mocha-plugin
 
 custom:
   settings:
