@@ -8,55 +8,45 @@ Crear un endpoint GET que muestre la data almacenada.
 
 [[API de prueba SWAPI: https://swapi.py4e.com/documentation](https://swapi.py4e.com/documentation)]()
 
-# Ficheros
+### Ficheros
 
-.
-├── serverless.yml
-├── src
-│ └── controllers
-| ├── getPlaneta.js
-| └── postPlaneta.js
-│ ├── db
-│ ├── helpers
-| └── utils
-|  
-├── package.json
-├── README.md
-└── REQUERIMIENTOS.md
+    .
+    ├── serverless.yml
+    ├── src
+    │ └── controllers
+    | ├── getPlaneta.js
+    | └── postPlaneta.js
+    │ ├── db
+    │ ├── helpers
+    | └── utils
+    |
+    ├── package.json
+    ├── README.md
+    └── REQUERIMIENTOS.md
 
-[ # 1.- configurar aws-cli y serverless ``` sudo apt-get awscli sudo npm install -g aws-cli serverless #configuramos sudo aws configure aws access key id [none]: ####
+- 1.- configurar aws-cli y serverless
 
-AWS Secret Access Key [None]: ###
-Default region name [None]: ###
-Default output format [None]: json
+  sudo apt-get awscli sudo npm install -g aws-cli serverless #configuramos sudo aws configure aws access key id [none]: ####
 
-sudo sls config credentials --provider aws --key ###ID#### --secret ###PAS### --profile serverless-rimac
+  AWS Secret Access Key [None]: ###
+  Default region name [None]: ###
+  Default output format [None]: json
 
-```
+  sudo sls config credentials --provider aws --key ###ID#### --secret ###PAS### --profile serverless-rimac
 
-# 2.- Plantilla Serverless
+- 2.- Plantilla Serverless
 
-```
+  sudo sls create -t aws-nodejs
 
-sudo sls create -t aws-nodejs
+  EJECUTANDO PRUEBAS
 
-EJECUTANDO PRUEBAS
+  sls invoke local -f ####
 
-sls invoke local -f ####
+  sls invoke local -f hello -d '######'
 
-sls invoke local -f hello -d '######'
+  npm install --save-dev serverless-offline
 
-npm install --save-dev serverless-offline
+- 3.- Deploy AWS
 
-```
-
-# 3.- Deploy AWS
-
-```
-
-sls deploy
-sls remove
-
-```
-]()
-```
+  sls deploy
+  sls remove
