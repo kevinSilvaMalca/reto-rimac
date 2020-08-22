@@ -16,7 +16,7 @@ module.exports.getPlanetasAll = async (event) => {
 
       const busquedaDynamo = await conexionDynamo.SearchDynamoDB(params);
       // 2.- EXISTE EN DYNAMO?
-      if (busquedaDynamo.nombre == nombrePlaneta) {
+      if (busquedaDynamo && busquedaDynamo.nombre == nombrePlaneta) {
         res = {
           statusCode: 200,
           body: JSON.stringify({

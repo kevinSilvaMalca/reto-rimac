@@ -41,6 +41,50 @@ class DynamoDB {
       };
     }
   }
+
+  // static async putDynamoDB(params) {
+  //   try {
+  //     const jsonUpdate = {
+  //       TableName: planetaSW,
+  //       Key: {
+  //         nombre: params.nombre,
+  //       },
+  //       UpdateExpression: `SET periodo_rotacion = :periodo_rotacion`,
+  //       // ConditionExpression: `attribute_exists(nombre)`,
+  //       // periodo_orbital = :periodo_orbital,
+  //       // diametro = :diametro,
+  //       // clima = :clima,
+  //       // gravedad = :gravedad,
+  //       // suelo = :suelo,
+  //       // agua_superficial = :agua_superficial,
+  //       // poblacion = :poblacion,
+  //       // editado = :editado,
+  //       // url = :url`,
+  //       ExpressionAttributeValues: {
+  //         ":periodo_rotacion": params.periodo_rotacion,
+  //         // ":periodo_orbital": params.periodo_orbital,
+  //         // ":diametro": params.diametro,
+  //         // ":clima": params.clima,
+  //         // ":gravedad": params.gravedad,
+  //         // ":suelo": params.suelo,
+  //         // ":agua_superficial": params.agua_superficial,
+  //         // ":poblacion": params.poblacion,
+  //         // ":editado": new Date().toISOString(),
+  //         // ":url": params.url,
+  //       },
+  //       ReturnValues: "UPDATED_NEW",
+  //     };
+
+  //     const result = await db.update(jsonUpdate).promise();
+
+  //     return result;
+  //   } catch (error) {
+  //     return {
+  //       statusCode: error.statusCode,
+  //       body: error,
+  //     };
+  //   }
+  // }
 }
 
 module.exports = DynamoDB;

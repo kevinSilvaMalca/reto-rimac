@@ -12,12 +12,12 @@ module.exports.postPlanetaDB = async (event) => {
     const params = {
       Key: {
         nombre: planetaNew.nombre,
-      },
+      }
     };
 
     const searchDynamo = await conexionDynamo.SearchDynamoDB(params);
 
-    if (searchDynamo == planetaNew.nombre) {
+    if (searchDynamo.nombre == planetaNew.nombre) {
       res = {
         statusCode: 200,
         body: JSON.stringify({ ...searchDynamo }),
@@ -26,7 +26,7 @@ module.exports.postPlanetaDB = async (event) => {
       const jsonDB = {
         id: uuidv4(),
         ...planetaNew,
-        creadoAWS: new Date().toDateString(),
+        creadoAWS: new Date().toISOString(),
       };
 
       const insertDynamo = await conexionDynamo.InsertDynamoDB(jsonDB);
