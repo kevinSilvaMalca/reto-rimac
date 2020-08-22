@@ -69,6 +69,16 @@ functions:
   #         path: reto-rimac/v1.0/planetas/
   #         method: put
 
+  # deletePlaneta:
+  #   handler: src/controllers/deletePlaneta.deletePlaneta
+  #   description: Funcion que Elimina Planetas.
+  #   memorySize: 2048
+  #   timeout: 30
+  #   events:
+  #     - http:
+  #         path: reto-rimac/v1.0/planetas/
+  #         method: put
+
 resources:
   Resources:
     PostsTable:
