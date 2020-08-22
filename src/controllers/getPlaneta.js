@@ -1,26 +1,62 @@
 const starWars = require("../helpers/consumers/starwars");
 const renameKeys = require("../utils/renamekeys");
-const { ConsoleTransportOptions } = require("winston/lib/winston/transports");
+const conexionDynamo = require("../db/dynamoDB");
 
 module.exports.getPlanetasAll = async (event) => {
+  let res;
   try {
-    console.log(event.multiValueQueryStringParameters.search);
+    const nombrePlaneta = event.multiValueQueryStringParameters.search[0];
+    // 1.- LLEGA CON SEARCH?
+    if (nombrePlaneta) {
+      const params = {
+        Key: {
+          nombre: nombrePlaneta,
+        },
+      };
 
-    const jsonTotal = await starWars.GET_ALL(event);
-    if (jsonTotal.codRes == "99") {
-      throw new Error(`Error del api StarWars`);
+      const busquedaDynamo = await conexionDynamo.SearchDynamoDB(params);
+      // 2.- EXISTE EN DYNAMO?
+      if (busquedaDynamo.nombre == nombrePlaneta) {
+        res = {
+          statusCode: 200,
+          body: JSON.stringify({
+            ...busquedaDynamo,
+          }),
+        };
+      } else {
+        const jsonTotal = await starWars.GET_ALL(nombrePlaneta);
+        if (jsonTotal.codRes == "99") {
+          throw new Error(`Error del api StarWars`);
+        }
+
+        const jsonRenombre = await rename(jsonTotal);
+
+        res = {
+          statusCode: 200,
+          body: JSON.stringify({
+            codRes: "00",
+            contador: jsonTotal.count,
+            resultado: jsonRenombre,
+          }),
+        };
+      }
+    } else {
+      const jsonTotal = await starWars.GET_ALL(nombrePlaneta);
+      if (jsonTotal.codRes == "99") {
+        throw new Error(`Error del api StarWars`);
+      }
+
+      const jsonRenombre = await rename(jsonTotal);
+
+      res = {
+        statusCode: 200,
+        body: JSON.stringify({
+          codRes: "00",
+          contador: jsonTotal.count,
+          resultado: jsonRenombre,
+        }),
+      };
     }
-
-    const jsonRenombre = await rename(jsonTotal);
-
-    const res = {
-      statusCode: 200,
-      body: JSON.stringify({
-        codRes: "00",
-        contador: planetas.count,
-        resultado: jsonRenombre,
-      }),
-    };
 
     return res;
   } catch (error) {
